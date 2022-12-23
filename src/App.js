@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { createContext } from 'react';
+import A from './components/props drilling/A';
 
+let studentContext=createContext()
+let empContext = createContext()
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+
+    <studentContext.provider value="sheela">
+   <empContext.provider value ={{ename:"Mukund",age:26,marks:420}}>
+
+    <A/>
+   </empContext.provider>
+
+    </studentContext.provider>
+
     </div>
+    
   );
 }
 
 export default App;
+export {studentContext,empContext};
